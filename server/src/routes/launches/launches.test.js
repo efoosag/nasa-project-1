@@ -9,6 +9,11 @@ describe('Launch Api', () => {
     await loadPlanetsData();
   })
 
+  afterAll(async () => {
+    await mongoDisconnect();
+  });
+
+
   describe('Test GET lauches', () => {
     test('it should response with 200 success', async () => {
       const response = await request(app).get('/v1/launches')
