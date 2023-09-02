@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:lts-alpine3.18
 
 WORKDIR /app
 
@@ -7,7 +7,7 @@ COPY package*.json ./
 COPY client/package*.json client/
 RUN npm run install-client --only=production
 
-COPY client/package.json server/
+COPY client/package*.json server/
 RUN npm run install-server --only=production
 
 COPY client/ client/
