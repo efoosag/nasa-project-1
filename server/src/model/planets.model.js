@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { parse } = require('csv-parse');
+import { parse } from 'csv-parse';
 
 const planets = require('./planets.mongo');
 
