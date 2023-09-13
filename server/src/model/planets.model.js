@@ -17,7 +17,7 @@ function loadPlanetsData() {
       comment: '#',
       columns: true,
     }))
-    .on('data', (data) => {
+    .on('data', async (data) => {
       if(isHabitalePlanet(data)) {
         savePlanet(data);
       }
@@ -26,7 +26,7 @@ function loadPlanetsData() {
       reject(err)
     })
     .on('end', async () => {
-      const countSavedPlanets = await (await (getAllPlanets())).length;
+      const countSavedPlanets = (await getAllPlanets()).length;
       console.log(`Amount of habitable planent is ${countSavedPlanets}`)
       resolve();
     });
